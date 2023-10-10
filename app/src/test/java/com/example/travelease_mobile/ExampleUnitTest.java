@@ -1,4 +1,4 @@
-package com.example.traveleasemobileapp;
+package com.example.travelease_mobile;
 
 import org.junit.Test;
 

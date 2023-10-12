@@ -8,8 +8,10 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 
 import com.example.travelease_mobile.databinding.ActivityMainBinding;
+import com.example.travelease_mobile.fragments.HistoryFragment;
 import com.example.travelease_mobile.fragments.HomeFragment;
 import com.example.travelease_mobile.fragments.ProfileFragment;
+import com.example.travelease_mobile.fragments.ReservationFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,16 +26,16 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNavigationView.setBackground(null);
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.navigation_item1:
+                case R.id.home:
                     replaceFragment(new HomeFragment());
                     break;
-                case R.id.navigation_item2:
-                    replaceFragment(new ProfileFragment());
+                case R.id.reservations:
+                    replaceFragment(new ReservationFragment());
                     break;
-                case R.id.navigation_item3:
-                    replaceFragment(new HomeFragment());
+                case R.id.history:
+                    replaceFragment(new HistoryFragment());
                     break;
-                case R.id.navigation_item4:
+                case R.id.profile:
                     replaceFragment(new ProfileFragment());
                     break;
             }

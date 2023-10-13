@@ -10,6 +10,7 @@ public class LoginResponse {
     private String city;
     private Integer state;
     private String imageUrl;
+    private String token;
 
     public String getNic() {
         return nic;
@@ -45,5 +46,9 @@ public class LoginResponse {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getToken() {
+        return token;
     }
 }

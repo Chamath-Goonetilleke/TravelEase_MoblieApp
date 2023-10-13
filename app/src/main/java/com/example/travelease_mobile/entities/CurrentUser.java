@@ -1,6 +1,9 @@
 package com.example.travelease_mobile.entities;
 
+import com.example.travelease_mobile.dto.ReservationDTO;
 import com.example.travelease_mobile.services.response.LoginResponse;
+
+import java.util.List;
 
 public class CurrentUser {
     private static CurrentUser singleton;
@@ -13,6 +16,9 @@ public class CurrentUser {
     private String city;
     private Integer state;
     private String imageUrl;
+    private String token;
+    private List<ReservationDTO> reservationList;
+    private List<ReservationDTO> reservationHistory;
 
     public static CurrentUser getInstance(){
         if(singleton==null){
@@ -31,6 +37,8 @@ public class CurrentUser {
         this.city=response.getCity();
         this.state=response.getState();
         this.imageUrl=response.getImageUrl();
+        this.token = response.getToken();
+
     }
 
     public static CurrentUser getSingleton() {
@@ -71,5 +79,25 @@ public class CurrentUser {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public List<ReservationDTO> getReservationList() {
+        return reservationList;
+    }
+
+    public void setReservationList(List<ReservationDTO> reservationList) {
+        this.reservationList = reservationList;
+    }
+
+    public List<ReservationDTO> getReservationHistory() {
+        return reservationHistory;
+    }
+
+    public void setReservationHistory(List<ReservationDTO> reservationHistory) {
+        this.reservationHistory = reservationHistory;
     }
 }

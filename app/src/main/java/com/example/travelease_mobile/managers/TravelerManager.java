@@ -2,7 +2,9 @@ package com.example.travelease_mobile.managers;
 
 import android.util.Log;
 
+import com.example.travelease_mobile.dto.ReservationDTO;
 import com.example.travelease_mobile.entities.CurrentUser;
+import com.example.travelease_mobile.services.IReservationService;
 import com.example.travelease_mobile.services.ITravelerService;
 import com.example.travelease_mobile.services.request.LoginRequest;
 import com.example.travelease_mobile.services.request.RegisterRequest;
@@ -10,6 +12,8 @@ import com.example.travelease_mobile.services.response.LoginResponse;
 import com.example.travelease_mobile.services.response.RegisterResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 import retrofit2.Call;
@@ -19,36 +23,45 @@ import retrofit2.Response;
 public class TravelerManager {
 
     private static TravelerManager singleton;
-//    private DatabaseManager databaseManager;
+    //    private DatabaseManager databaseManager;
     private ITravelerService travelerService;
+
+    ReservationManager reservationManager;
 
     private final CurrentUser currentUser;
 
-    public static TravelerManager getInstance(){
-        if(singleton ==null){
+    public static TravelerManager getInstance() {
+        if (singleton == null) {
             singleton = new TravelerManager();
         }
         return singleton;
     }
 
-    private TravelerManager(){
+    private TravelerManager() {
         travelerService = NetworkManager.getInstance().createService(ITravelerService.class);
         currentUser = CurrentUser.getInstance();
+        reservationManager = ReservationManager.getInstance();
         //databaseManager = DatabaseManager.getInstance();
     }
 
-    public void login(String email, String password, Runnable onSuccess, Consumer<String> onError){
+    public void login(String email, String password, Runnable onSuccess, Consumer<String> onError) {
         if (!NetworkManager.getInstance().isNetworkAvailable()) {
             onError.accept("No internet connectivity");
             return;
         }
-        LoginRequest body = new LoginRequest(email,password);
+        LoginRequest body = new LoginRequest(email, password);
         travelerService.login(body).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-
                     currentUser.MapResponse(response.body());
+                    String token = "Bearer "+response.body().getToken();
+                    List<ReservationDTO> reservationList = reservationManager.getAllReservations(response.body().getNic(), token);
+                    List<ReservationDTO> reservationHistory = reservationManager.getReservationHistory(response.body().getNic());
+
+                    currentUser.setReservationList(reservationList);
+                    currentUser.setReservationHistory(reservationHistory);
+
                     onSuccess.run();
 
                 } else {
@@ -65,7 +78,7 @@ public class TravelerManager {
         });
     }
 
-    public void register(RegisterRequest body,Runnable onSuccess, Consumer<String> onError){
+    public void register(RegisterRequest body, Runnable onSuccess, Consumer<String> onError) {
         if (!NetworkManager.getInstance().isNetworkAvailable()) {
             onError.accept("No internet connectivity");
             return;
@@ -73,11 +86,11 @@ public class TravelerManager {
         travelerService.register(body).enqueue(new Callback<RegisterResponse>() {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-                System.out.println("Response:"+response.body());
+                System.out.println("Response:" + response.body());
                 System.out.println("Response Code: " + response.code());
                 if (response.isSuccessful() && response.body() != null) {
                     onSuccess.run();
-                }else {
+                } else {
                     if (response.errorBody() != null) {
                         try {
                             String errorResponse = response.errorBody().string();

@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.travelease_mobile.databinding.ActivityLoginBinding;
 import com.example.travelease_mobile.managers.ContextManager;
+import com.example.travelease_mobile.managers.ReservationManager;
 import com.example.travelease_mobile.managers.TravelerManager;
 import com.google.android.material.button.MaterialButton;
 
@@ -18,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
     TravelerManager travelerManager;
+    ReservationManager reservationManager;
     EditText email;
     EditText password;
     MaterialButton loginBtn;
@@ -31,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
         ContextManager.getInstance().setApplicationContext(getApplicationContext());
         travelerManager = TravelerManager.getInstance();
+        reservationManager = ReservationManager.getInstance();
 
         email = binding.email;
         password = binding.password;

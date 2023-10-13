@@ -1,11 +1,15 @@
+/*
+------------------------------------------------------------------------------
+ File: ProfileFragment.java
+ Purpose: This file contains the ProfileFragment class, which is responsible for
+ displaying the user's profile information in the TravelEase_Mobile project.
+ Author: IT20122096
+ Date: 2023-10-13
+------------------------------------------------------------------------------
+*/
 package com.example.travelease_mobile.fragments;
 
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +17,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.travelease_mobile.R;
 import com.example.travelease_mobile.entities.CurrentUser;
-import com.squareup.picasso.Picasso;
 
 
 public class ProfileFragment extends Fragment {
@@ -40,7 +45,6 @@ ImageView profile;
         currentUser = CurrentUser.getInstance();
         view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        //User Info
         name_Text = view.findViewById(R.id.name_text);
         name_Text.setText(currentUser.getTitle() + " " + currentUser.getFirstName() + " " + currentUser.getLastName());
 
@@ -52,16 +56,6 @@ ImageView profile;
 
         profile = view.findViewById(R.id.profile);
 
-//        String imageDataUrl = currentUser.getImageUrl();
-//
-//        // Extract the base64 image data
-//        String base64Image = imageDataUrl.split(",")[1];
-//
-//        // Decode the base64 image data to a byte array
-//        byte[] imageBytes = Base64.decode(base64Image, Base64.DEFAULT);
-//
-//        // Load the decoded image data into the ImageView using Picasso
-//        Picasso.get().load(String.valueOf(imageBytes)).into(profile);
 
         status_text = view.findViewById(R.id.status_text);
         if (currentUser.getState() == 0) {

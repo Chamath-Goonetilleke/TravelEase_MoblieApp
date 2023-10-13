@@ -1,3 +1,12 @@
+/*
+------------------------------------------------------------------------------
+ File: ReservationAdapter.java
+ Purpose: This file contains the ReservationAdapter class, which is responsible for
+ handling reservations in the TravelEase_Mobile project.
+ Author: IT20122096
+ Date: 2023-10-13
+------------------------------------------------------------------------------
+*/
 package com.example.travelease_mobile.adapters;
 
 import android.content.Context;
@@ -28,12 +37,20 @@ public class ReservationAdapter extends RecyclerView.Adapter<ReservationAdapter.
     @NonNull
     @Override
     public ReservationAdapter.ReservationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //------------------------------------------------------------------------------
+        // Method: onCreateViewHolder
+        // Purpose: Creates a new ViewHolder for a reservation item view.
+        //------------------------------------------------------------------------------
         View view = LayoutInflater.from(context).inflate(R.layout.reservation_item, parent, false);
         return new ReservationViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ReservationAdapter.ReservationViewHolder holder, int position) {
+        //------------------------------------------------------------------------------
+        // Method: onBindViewHolder
+        // Purpose: Binds data to the RecyclerView item.
+        //------------------------------------------------------------------------------
         ReservationDTO reservation = reservationList.get(position);
         holder.trip.setText(reservation.getFrom() + " to " + reservation.getTo());
         holder.date.setText(reservation.getDate());
@@ -43,6 +60,10 @@ public class ReservationAdapter extends RecyclerView.Adapter<ReservationAdapter.
 
     @Override
     public int getItemCount() {
+        //------------------------------------------------------------------------------
+        // Method: getItemCount
+        // Purpose: Returns the number of items in the RecyclerView.
+        //------------------------------------------------------------------------------
         return reservationList.size();
     }
 

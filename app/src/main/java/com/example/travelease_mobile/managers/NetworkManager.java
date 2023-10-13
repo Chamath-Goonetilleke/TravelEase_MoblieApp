@@ -1,3 +1,11 @@
+/*
+------------------------------------------------------------------------------
+ File: NetworkManager.java
+ Purpose: This file contains the NetworkManager class, which manages network-related tasks in the TravelEase_Mobile project.
+ Author: IT20122096
+ Date: 2023-10-13
+------------------------------------------------------------------------------
+*/
 package com.example.travelease_mobile.managers;
 
 import android.content.Context;

@@ -1,3 +1,11 @@
+/*
+------------------------------------------------------------------------------
+ File: CurrentUser.java
+ Purpose: This file contains the CurrentUser class, which represents the current user's information in the TravelEase_Mobile project.
+ Author: IT20122096
+ Date: 2023-10-13
+------------------------------------------------------------------------------
+*/
 package com.example.travelease_mobile.entities;
 
 import com.example.travelease_mobile.dto.ReservationDTO;

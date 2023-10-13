@@ -1,3 +1,11 @@
+/*
+------------------------------------------------------------------------------
+ File: ReservationDTO.java
+ Purpose: This file contains the ReservationDTO class, which represents reservation data in the TravelEase_Mobile project.
+ Author: IT20122096
+ Date: 2023-10-13
+------------------------------------------------------------------------------
+*/
 package com.example.travelease_mobile.dto;
 
 import com.example.travelease_mobile.entities.Passenger;

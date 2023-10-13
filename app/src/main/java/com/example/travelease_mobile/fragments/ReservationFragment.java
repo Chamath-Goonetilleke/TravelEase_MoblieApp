@@ -1,3 +1,12 @@
+/*
+------------------------------------------------------------------------------
+ File: ReservationFragment.java
+ Purpose: This file contains the ReservationFragment class, which is responsible for
+ displaying a list of reservations in the TravelEase_Mobile project.
+ Author: IT20122096
+ Date: 2023-10-13
+------------------------------------------------------------------------------
+*/
 package com.example.travelease_mobile.fragments;
 
 import android.app.ProgressDialog;
@@ -42,7 +51,6 @@ public class ReservationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         currentUser = CurrentUser.getInstance();
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_reservation, container, false);
         context = getActivity();
 

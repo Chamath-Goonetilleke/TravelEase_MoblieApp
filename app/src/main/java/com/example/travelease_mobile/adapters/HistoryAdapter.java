@@ -1,3 +1,12 @@
+/*
+------------------------------------------------------------------------------
+ File: HistoryAdapter.java
+ Purpose: This file contains the HistoryAdapter class, which is responsible for
+ handling the history of reservations in the TravelEase_Mobile project.
+ Author: IT20122096
+ Date: 2023-10-13
+------------------------------------------------------------------------------
+*/
 package com.example.travelease_mobile.adapters;
 
 import android.content.Context;
@@ -27,12 +36,20 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Reservat
     @NonNull
     @Override
     public ReservationHistoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //------------------------------------------------------------------------------
+        // Method: onCreateViewHolder
+        // Purpose: Creates a new ViewHolder for a history item view.
+        //------------------------------------------------------------------------------
         View view = LayoutInflater.from(context).inflate(R.layout.history_item,parent,false);
         return new ReservationHistoryViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ReservationHistoryViewHolder holder, int position) {
+        //------------------------------------------------------------------------------
+        // Method: onBindViewHolder
+        // Purpose: Binds data to the RecyclerView item.
+        //------------------------------------------------------------------------------
         ReservationDTO reservation = reservationList.get(position);
         holder.trip.setText(reservation.getFrom() + " to " + reservation.getTo());
         holder.date.setText(reservation.getDate());
@@ -42,6 +59,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.Reservat
 
     @Override
     public int getItemCount() {
+        //------------------------------------------------------------------------------
+        // Method: getItemCount
+        // Purpose: Returns the number of items in the RecyclerView.
+        //------------------------------------------------------------------------------
         return reservationList.size();
     }
 

@@ -1,3 +1,11 @@
+/**
+ * ----------------------------------------------------------------------------
+ * File: RegisterActivity.java
+ * Purpose: This activity allows users to register a new traveler account in the TravelEase_Mobile project.
+ * Author: IT20122096
+ * Date: 2023-10-13
+ * ----------------------------------------------------------------------------
+ */
 package com.example.travelease_mobile;
 
 import androidx.appcompat.app.AppCompatActivity;

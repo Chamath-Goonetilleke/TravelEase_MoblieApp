@@ -1,3 +1,12 @@
+/*
+------------------------------------------------------------------------------
+ File: HistoryFragment.java
+ Purpose: This file contains the HistoryFragment class, which is responsible for
+ displaying a history of reservations in the TravelEase_Mobile project.
+ Author: IT20122096
+ Date: 2023-10-13
+------------------------------------------------------------------------------
+*/
 package com.example.travelease_mobile.fragments;
 
 import android.content.Context;
@@ -33,7 +42,6 @@ public class HistoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
 
         view = inflater.inflate(R.layout.fragment_history, container, false);

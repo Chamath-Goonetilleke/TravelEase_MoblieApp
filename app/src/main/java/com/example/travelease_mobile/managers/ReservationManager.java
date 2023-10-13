@@ -1,3 +1,11 @@
+/*
+------------------------------------------------------------------------------
+ File: ReservationManager.java
+ Purpose: This file contains the ReservationManager class, which manages reservation-related tasks in the TravelEase_Mobile project.
+ Author: IT20122096
+ Date: 2023-10-13
+------------------------------------------------------------------------------
+*/
 package com.example.travelease_mobile.managers;
 
 import com.example.travelease_mobile.dto.ReservationDTO;

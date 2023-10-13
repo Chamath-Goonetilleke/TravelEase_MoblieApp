@@ -1,3 +1,12 @@
+/**
+ * ----------------------------------------------------------------------------
+ * File: MainActivity.java
+ * Purpose: This is the main activity of the TravelEase_Mobile project, which allows users to navigate
+ * through different sections of the application.
+ * Author: IT20122096
+ * Date: 2023-10-13
+ * ----------------------------------------------------------------------------
+ */
 package com.example.travelease_mobile;
 
 import androidx.appcompat.app.AppCompatActivity;

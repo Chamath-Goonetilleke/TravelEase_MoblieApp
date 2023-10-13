@@ -1,3 +1,12 @@
+/*
+------------------------------------------------------------------------------
+ File: HomeFragment.java
+ Purpose: This file contains the HomeFragment class, which is responsible for
+ displaying an image slider on the home screen in the TravelEase_Mobile project.
+ Author: IT20122096
+ Date: 2023-10-13
+------------------------------------------------------------------------------
+*/
 package com.example.travelease_mobile.fragments;
 
 import android.content.Context;
